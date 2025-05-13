@@ -1,0 +1,241 @@
+@import "tailwindcss";
+
+@layer components {
+  .logo-img {
+    @apply inline-block rounded-full w-8 h-8 lg:w-15 lg:h-15;
+  }
+
+  .brand-img-sizes {
+    @apply inline-block w-7 h-7 lg:w-15 lg:h-15  ml-[0.5] mr-[0.5];
+  }
+
+  .ohStudio-hero-text {
+    @apply text-[#9c9c9c] text-3xl lg:text-6xl font-semibold leading-9 lg:leading-16 tracking-tight;
+  }
+
+  .haptic-link {
+    @apply inline-flex items-center text-black ml-1 hover:text-[#9c9c9c];
+  }
+  .ohStudio-hero {
+    @apply flex justify-between w-full px-1 sm:px-2 md:px-2 md:py-2 sm:py-2 lg:px-3 py-3;
+  }
+
+  .carousel-wrapper {
+    @apply w-full overflow-hidden py-13 px-4 md:py-5 lg:py-2 h-full;
+  }
+
+  .carousel-container {
+    @apply relative h-full;
+  }
+
+  .carousel-track {
+    @apply flex h-full;
+  }
+
+  .paused-animation {
+    animation-play-state: paused !important;
+  }
+  .animate-scroll {
+    animation: scroll 60s linear infinite;
+  }
+  
+  .project-card {
+    @apply w-[260px] sm:w-[240px] md:w-[240px] lg:w-[400px] flex-shrink-0 overflow-hidden my-14 md:my-1 whitespace-nowrap;
+  }
+
+  .card-header {
+    @apply flex items-start space-x-3 px-2 pt-5;
+  }
+
+  .card-icon {
+    @apply h-10 w-10 rounded-md flex items-center justify-center flex-shrink-0;
+  }
+
+  .card-icon-text {
+    @apply text-white font-bold text-base;
+  }
+
+  .card-text {
+    @apply flex flex-col overflow-hidden;
+  }
+
+  .project-title {
+    @apply text-sm text-black;
+  }
+
+  .project-description {
+    @apply text-sm text-[#9c9c9c] leading-snug tracking-tight;
+  }
+
+  .card-media-wrapper {
+    @apply w-full px-1 pt-3 pb-2;
+  }
+
+  .card-media {
+    @apply w-full h-[240px] sm:h-[240px] md:h-[240px] lg:h-[400px] rounded-2xl bg-[#f1f1f1] overflow-hidden;
+  }
+
+  .media-content {
+    @apply w-full h-full object-cover;
+  }
+
+/* haptic styles */
+
+.navbar-container {
+  @apply flex flex-col justify-between items-start bg-[#ff4d12] w-full min-h-screen pt-10 pb-6 relative overflow-visible
+         px-5 md:px-10 lg:px-10  
+         max-[768px]:min-h-[50vh] max-[809px]:px-3 max-[809px]:pt-3 max-[809px]:pb-3;
+}
+
+
+.logo-image {
+  @apply w-[111px] h-[38px] md:w-[200px] md:h-[65px] lg:w-[200px] lg:h-[65px];
+}
+
+  .menu-button-wrapper {
+    @apply fixed sm:fixed top-4 right-4 sm:top-4 sm:right-3 md:top-10 md:right-10 z-30 flex flex-col items-end;
+  }
+
+  .menu-button {
+    @apply bg-white rounded-full p-3 shadow-md;
+  }
+
+  .menu-icon-wrapper {
+    @apply w-4 h-4 relative;
+  }
+
+  .menu-icon-line {
+    @apply block absolute rounded-2xl h-0.5 w-full bg-black transform transition-all duration-300 ease-in-out origin-center;
+  }
+
+  .menu-items {
+    @apply flex flex-col md:flex-row absolute top-12 md:top-1 right-0 md:right-11 gap-1 md:gap-1 bg-transparent transition-all duration-300 origin-top-right;
+  }
+
+  .visible-menu {
+    @apply opacity-100 scale-100 pointer-events-auto;
+  }
+
+  .hidden-menu {
+    @apply opacity-0 scale-0 pointer-events-none;
+  }
+
+  .menu-link-button {
+    @apply bg-black text-white px-4 py-2 rounded-full text-base transition-colors duration-200 hover:bg-white hover:text-black;
+  }
+
+  .hero-text {
+    @apply text-black font-serif text-4xl sm:text-4xl md:text-6xl lg:text-6xl;
+  }
+
+  .hero-text-container  
+  {
+    @apply my-2 leading-10 tracking-tight  lg:w-[687px] lg:h-[211.2px];
+  }
+
+.hiring-box {
+  @apply p-6 self-end mr-3 my-6;
+}
+
+.hiring-hovered {
+  @apply bg-black text-white;
+}
+
+.hiring-default {
+  @apply bg-white shadow;
+}
+
+.hiring-icon {
+  @apply px-3 py-2 font-bold text-lg;
+}
+
+.hiring-text {
+  @apply ml-3 ;
+}
+
+.hiring-label {
+  @apply text-sm text-[#9c9c9c] ;
+}
+
+.hiring-title {
+  @apply font-medium ;
+}
+
+.hiring-arrow-button {
+  @apply ml-6;
+}
+
+  
+  .plus-icon-wrapper span:first-child {
+    transform: rotate(0deg); /* horizontal line */
+  }
+  
+  .plus-icon-wrapper span:last-child {
+    transform: rotate(90deg); /* vertical line */
+  }
+  
+  /* Optional: You can size this larger as needed */
+  .hiring-plus-button {
+    @apply absolute top-10 right-10 w-12 h-12 flex items-center justify-center bg-transparent;
+  }
+  
+
+
+  .Why-Haptic {
+    @apply flex flex-col justify-between items-start bg-[#fbba10] w-full h-[320px]  pt-5 pb-6 relative overflow-visible
+           px-5 sm:px-8 md:px-13 lg:px-13 sm:h-[320px] lg:h-[572px] md:h-[572px]
+  }
+
+  .why-haptic-text {
+    @apply text-black font-serif text-4xl sm:text-4xl md:text-5xl lg:text-5xl;
+  }
+
+  .why-haptic-text-container  
+  {
+    @apply my-4 leading-10 tracking-tight  lg:w-[687px] lg:h-[211.2px];
+  }
+
+
+  .arrow-line {
+    @apply block absolute h-0.5 w-full rotate-90 top-2.5 origin-center transition-colors duration-200;
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 60s linear infinite;
+}
+
+
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50%));
+  }
+}
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+}
+
+.group:hover .animate-scroll {
+  animation-play-state: paused;
+}
+
+
+@media (min-width: 1024px) {
+  .group:hover .animate-scroll {
+    animation-play-state: paused;
+  }
+}
