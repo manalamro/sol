@@ -1,13 +1,43 @@
-# React + Vite
+## Installation
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+To get started with this project locally, follow these steps:
 
-Currently, two official plugins are available:
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/your-username/your-repo-name.git
+````
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+2. **Navigate into the project directory**
 
-## Expanding the ESLint configuration
+   ```bash
+   cd your-repo-name
+   ```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# sol
+3. **Install dependencies**
+
+   ```bash
+   npm install
+   ```
+
+4. **Run the development server**
+
+   ```bash
+   npm run dev
+   ```
+
+5. **Access the project in your browser**
+
+   Once the server is running, open your browser and go to:
+
+   ```
+   http://localhost:5173
+   ```
+
+   > ⚠️ Make sure port 5173 is available, or update the port in your configuration if needed.
+
+
+This project may use some public assets or third-party services. For example:
+
+ Static assets (like images, json, and svgs) are stored in the `src/assets` directory.
+* **External Libraries**: This project relies on open-source libraries such as React, Tailwind CSS, and vite.
+
