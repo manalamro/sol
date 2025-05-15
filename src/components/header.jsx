@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import logo from "../assets/svgexport-26.svg";
 import circle from '../assets/svgexport-3.svg';
-import add from '../assets/svgexport-6.svg'
+import add from '../assets/svgexport-6.svg';
 import HiringPage from './HiringSideNav';
-import HiringAnimatedLogo from '../components/hiringLogo'; // Note: Changed import name to start with capital letter
+import HiringAnimatedLogo from './HiringLogo';
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -50,7 +50,15 @@ export default function Navbar() {
       </div>
     );
   };
-  
+
+  const handleScrollToSection = (sectionId) => {
+    setMenuOpen(false); // Close menu on click
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div className="navbar-container">
       <img src={logo} alt="hapticLogo" className="logo-image" />
@@ -60,15 +68,18 @@ export default function Navbar() {
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
           className="menu-button"
+          aria-label="Toggle menu"
         >
           {renderAnimatedIcon()}
         </button>
 
-        <div
-          className={`menu-items ${menuOpen ? "visible-menu" : "hidden-menu"}`}
-        >
+        <div className={`menu-items ${menuOpen ? "visible-menu" : "hidden-menu"}`}>
           {["Home", "Work", "Pricing", "Careers"].map((item) => (
-            <button key={item} className="menu-link-button">
+            <button
+              key={item}
+              className="menu-link-button"
+              onClick={() => handleScrollToSection(item.toLowerCase())}
+            >
               {item}
             </button>
           ))}
@@ -87,28 +98,28 @@ export default function Navbar() {
         onMouseLeave={() => setIsHiringHovered(false)}
       >
         <div className="hiring-icon">
-          <HiringAnimatedLogo /> 
+          <HiringAnimatedLogo />
         </div>
         <div className="hiring-text">
-          <p
-            className={`hiring-label ${
-              isHiringHovered ? "text-gray-300" : "text-gray-500"
-            }`}
-          >
+          <p className={`hiring-label ${isHiringHovered ? "text-gray-300" : "text-gray-500"}`}>
             Hiring
           </p>
           <p className="hiring-title">Senior Designer</p>
         </div>
-        <button 
+        <button
           className="hiring-arrow-button"
           onClick={() => setShowHiringSidebar(true)}
+          aria-label="Open hiring sidebar"
         >
           <img src={add} alt="add" />
         </button>
       </div>
 
       {showHiringSidebar && (
-        <div className="fixed inset-0 z-40 bg-black bg-opacity-50" onClick={() => setShowHiringSidebar(false)}>
+        <div
+          className="fixed inset-0 z-40 bg-black bg-opacity-50"
+          onClick={() => setShowHiringSidebar(false)}
+        >
           <HiringPage />
         </div>
       )}

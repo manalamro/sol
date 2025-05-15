@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { carouselItems } from "../data/projectsData";
-import SideNavigation from "../components/sidenav";
+import SideNavigation from "./SideNav";
 
 const Carousel = () => {
   const [items, setItems] = useState([]);

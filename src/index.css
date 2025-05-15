@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+}
+
+
 @layer components {
   .logo-img {
     @apply inline-block rounded-full w-8 h-8 lg:w-15 lg:h-15;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { X } from 'react-feather';
-import HiringAnimatedLogo from '../components/hiringLogo'
+import HiringAnimatedLogo from './HiringLogo'
 
 const HiringPage = ({ onClose }) => {
   const handleApply = () => {
