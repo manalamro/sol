@@ -41,3 +41,4 @@ This project may use some public assets or third-party services. For example:
  Static assets (like images, json, and svgs) are stored in the `src/assets` directory.
 * **External Libraries**: This project relies on open-source libraries such as React, Tailwind CSS, and vite.
 
+6. on this repo i am apply Task 1 which is Learn GitHub PR Workflow.
