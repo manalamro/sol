@@ -2,7 +2,7 @@ import React from "react";
 
 const CareersSection = () => {
   return (
-    <section className="py-16 px-6 max-w-6xl mx-auto bg-[#482f22] ">
+    <section className=" w-full py-16 px-6 mx-auto bg-[#482f22] ">
       {/* Headline Section */}
       <div className="mb-12">
         <div className="flex items-center gap-2 mb-6 ">
