@@ -16,17 +16,17 @@
   },
   {
     "id": 2,
-    "name": "Kinetic",
-    "price": 5000,
+    "name": "tile",
+    "price": 3400,
     "interval": "Month",
-    "description": "Ideal for startups seeking design agility with strong support and flexibility.",
+    "description": "Great for teams who work in weekly sprints, and need design and strategy support.",
     "features": [
-      "Mid-level Designer",
-      "Bi-weekly Sprint Calls",
-      "Slack collaboration",
-      "Design System Setup"
+      "Dedicated Senior Designer",
+      "Weekly Sprint Calls",
+      "Async Loom updates",
+      "Unlimited Slack communication"
     ],
-    "svgColor": "#00BFFF",
+    "svgColor": "green",
     "link": "https://calendly.com"
   },
   {
@@ -43,5 +43,19 @@
     ],
     "svgColor": "#ADFF2F",
     "link": "https://calendly.com"
+  },
+  {
+    "id": 1748642017057,
+    "name": "plans",
+    "price": 2000,
+    "interval": "month",
+    "description": "test for description here",
+    "features": [
+      "one",
+      "two",
+      "three"
+    ],
+    "svgColor": "#fff",
+    "link": "http://google.com"
   }
 ]
