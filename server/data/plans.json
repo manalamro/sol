@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "name": "Tactile",
+    "price": 7500,
+    "interval": "Month",
+    "description": "Great for teams who work in weekly sprints, and need design and strategy support.",
+    "features": [
+      "Dedicated Senior Designer",
+      "Weekly Sprint Calls",
+      "Async Loom updates",
+      "Unlimited Slack communication"
+    ],
+    "svgColor": "#FBBA10",
+    "link": "https://calendly.com"
+  },
+  {
+    "id": 2,
+    "name": "Kinetic",
+    "price": 5000,
+    "interval": "Month",
+    "description": "Ideal for startups seeking design agility with strong support and flexibility.",
+    "features": [
+      "Mid-level Designer",
+      "Bi-weekly Sprint Calls",
+      "Slack collaboration",
+      "Design System Setup"
+    ],
+    "svgColor": "#00BFFF",
+    "link": "https://calendly.com"
+  },
+  {
+    "id": 3,
+    "name": "Atomic",
+    "price": 10000,
+    "interval": "Month",
+    "description": "Best for enterprises needing fast turnaround, premium support, and design systems.",
+    "features": [
+      "Senior+ Designer",
+      "Daily Standups",
+      "On-demand Design System",
+      "Custom Deliverables"
+    ],
+    "svgColor": "#ADFF2F",
+    "link": "https://calendly.com"
+  }
+]
