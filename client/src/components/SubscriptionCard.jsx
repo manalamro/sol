@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import AddPlanModal from './addPlan';
+import { AuthContext } from '../context/AuthContext';
 
 const initialFormData = {
   name: '',
@@ -13,10 +14,12 @@ const initialFormData = {
 };
 
 const PricingPlans = () => {
+  const { role, token } = useContext(AuthContext);
+
   const [plans, setPlans] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState(initialFormData);
-  const [loading, setLoading] = useState(false); 
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -46,7 +49,15 @@ const PricingPlans = () => {
     };
 
     try {
-      const response = await axios.post('http://localhost:3000/api/plans', newPlan);
+      const response = await axios.post(
+        'http://localhost:3000/api/plans',
+        newPlan,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`, // send token in header
+          },
+        }
+      );
       setPlans([...plans, response.data]);
       setIsModalOpen(false);
     } catch (err) {
@@ -57,7 +68,11 @@ const PricingPlans = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:3000/api/plans/${id}`);
+      await axios.delete(`http://localhost:3000/api/plans/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`, // send token in header
+        },
+      });
       setPlans(plans.filter((plan) => plan.id !== id));
     } catch (err) {
       setError('Failed to delete plan. Please try again.');
@@ -67,9 +82,18 @@ const PricingPlans = () => {
 
   const renderSVG = (color) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 41">
-      <path d="M8 40.629C3.582 40.629 0 40.629 0 40.629L0 0.629C0 0.629 3.582 0.629 8 0.629L32 0.629C36.418 0.629 40 0.629 40 0.629L40 40.629C40 40.629 36.418 40.629 32 40.629Z" fill={color} />
-      <path d="M20.5 30.629C15.253 30.629 11 26.376 11 21.129C11 21.129 15.253 21.129 20.5 21.129C25.747 21.129 30 21.129 30 21.129C30 26.376 25.747 30.629 20.5 30.629Z" fill="black" />
-      <path d="M20.5 21.129C15.253 21.129 11 16.876 11 11.629C11 11.629 15.253 11.629 20.5 11.629C25.747 11.629 30 11.629 30 11.629C30 16.876 25.747 21.129 20.5 21.129Z" fill="black" />
+      <path
+        d="M8 40.629C3.582 40.629 0 40.629 0 40.629L0 0.629C0 0.629 3.582 0.629 8 0.629L32 0.629C36.418 0.629 40 0.629 40 0.629L40 40.629C40 40.629 36.418 40.629 32 40.629Z"
+        fill={color}
+      />
+      <path
+        d="M20.5 30.629C15.253 30.629 11 26.376 11 21.129C11 21.129 15.253 21.129 20.5 21.129C25.747 21.129 30 21.129 30 21.129C30 26.376 25.747 30.629 20.5 30.629Z"
+        fill="black"
+      />
+      <path
+        d="M20.5 21.129C15.253 21.129 11 16.876 11 11.629C11 11.629 15.253 11.629 20.5 11.629C25.747 11.629 30 11.629 30 11.629C30 16.876 25.747 21.129 20.5 21.129Z"
+        fill="black"
+      />
     </svg>
   );
 
@@ -83,18 +107,19 @@ const PricingPlans = () => {
         setFormData={setFormData}
       />
 
-      <div className="flex justify-end mb-4">
-        <button
-          onClick={() => setIsModalOpen(true)}
-          className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition"
-        >
-          ➕ Add New
-        </button>
-      </div>
+      {/* Show Add New only if admin */}
+      {role === 'admin' && (
+        <div className="flex justify-end mb-4">
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition"
+          >
+            ➕ Add New
+          </button>
+        </div>
+      )}
 
-      
       {error && <p className="text-red-400 mb-4">{error}</p>}
-
 
       {loading ? (
         <p className="text-gray-300">Loading plans...</p>
@@ -114,7 +139,9 @@ const PricingPlans = () => {
               </div>
               <p className="text-gray-300 text-sm mb-4">{plan.description}</p>
               <div className="mb-4">
-                <p className="text-4xl font-light">£{plan.price.toLocaleString()}</p>
+                <p className="text-4xl font-light">
+                  £{plan.price.toLocaleString()}
+                </p>
                 <p className="text-xs text-gray-300">/{plan.interval}</p>
               </div>
               <ul className="text-sm text-gray-300 list-disc pl-5 mb-6">
@@ -130,12 +157,16 @@ const PricingPlans = () => {
               >
                 Book a call
               </a>
-              <button
-                onClick={() => handleDelete(plan.id)}
-                className="mt-4 bg-red-600 text-white px-4 py-2 text-sm rounded hover:bg-red-700 transition"
-              >
-                🗑️ Delete
-              </button>
+
+              {/* Show Delete only if admin */}
+              {role === 'admin' && (
+                <button
+                  onClick={() => handleDelete(plan.id)}
+                  className="mt-4 bg-red-600 text-white px-4 py-2 text-sm rounded hover:bg-red-700 transition"
+                >
+                  🗑️ Delete
+                </button>
+              )}
             </div>
           ))}
         </div>

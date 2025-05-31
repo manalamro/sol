@@ -43,19 +43,5 @@
     ],
     "svgColor": "#ADFF2F",
     "link": "https://calendly.com"
-  },
-  {
-    "id": 1748642017057,
-    "name": "plans",
-    "price": 2000,
-    "interval": "month",
-    "description": "test for description here",
-    "features": [
-      "one",
-      "two",
-      "three"
-    ],
-    "svgColor": "#fff",
-    "link": "http://google.com"
   }
 ]

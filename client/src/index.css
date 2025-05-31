@@ -11,7 +11,7 @@ html {
   }
 
   .brand-img-sizes {
-    @apply inline-block w-7 h-7 lg:w-15 lg:h-15  ml-[0.5] mr-[0.5];
+    @apply inline-block w-7 h-7 lg:w-15 lg:h-13  ml-[0.3] mr-[0.3];
   }
 
   .ohStudio-hero-text {

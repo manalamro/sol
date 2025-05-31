@@ -32,12 +32,12 @@ const OhStudio = () => {
             ship at
                 <img src={brand} alt="Haptic logo" className="brand-img-sizes" />
             <Link
-              to="/haptic"
+              to="/login"
               target="_blank"
               rel="noopener noreferrer"
-              className="haptic-link "
+              className="haptic-link text-[25px]"
             >
-              Haptic.
+              Login to Haptic.
             </Link>
           </span>
         </h1>
